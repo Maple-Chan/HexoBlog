@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://maplestory.work/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://maplestory.work"></form>
       </div>
     </div>
   </div>
@@ -681,7 +681,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/07/15/2019-07-15- Kotlin 学习记录/" data-id="cjzm0nuor001hr4taveukkjgc" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/07/15/2019-07-15- Kotlin 学习记录/" data-id="cjzm0vsq1000iaotaweaxoe2p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
@@ -749,7 +749,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/31/2019-05-31- C# 查看串口/" data-id="cjzm0nunz000fr4tamtvesbqh" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/05/31/2019-05-31- C# 查看串口/" data-id="cjzm0vsq0000faotas2mhw1v4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/串口通讯/">串口通讯</a></li></ul>
@@ -817,7 +817,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/30/2019-05-30- C# 监听串口插拔事件/" data-id="cjzm0nunl000dr4tayv2jgqle" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/05/30/2019-05-30- C# 监听串口插拔事件/" data-id="cjzm0vspv000aaota2ldurjyl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/串口通讯/">串口通讯</a></li></ul>
@@ -863,66 +863,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/19/2019-05-19- 设计模式/" data-id="cjzm0nuni0008r4tae9tvqnxn" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/05/19/2019-05-19- 设计模式/" data-id="cjzm0vsps0007aotawl91913s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2019-05-18- C# 访问UI线程的方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/" class="article-date">
-  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/">C# 访问UI线程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center><h2><b>C# 访问UI线程</b></h2></center><br>
-
-<ul>
-<li><h4 id="采用SynchronizationContext的Post-Send方法更新"><a href="#采用SynchronizationContext的Post-Send方法更新" class="headerlink" title="采用SynchronizationContext的Post/Send方法更新"></a>采用SynchronizationContext的Post/Send方法更新</h4><p>​        异步更新UI控件需要两步：</p>
-<p>&emsp;&emsp; 1. 是要获取UI线程的上下文</p>
-<p>&emsp;&emsp; 2. 调用post方法</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; public class ChangeUI //处在另一个线程</span><br><span class="line">&gt; &#123;</span><br><span class="line">&gt;      SynchronizationContext _syncContext = null; </span><br><span class="line">&gt; </span><br><span class="line">&gt;      publc ChangeUI()&#123;</span><br><span class="line">&gt;          _syncContext = SynchronizationContext.Current; </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      public update()&#123;</span><br><span class="line">&gt;             Thread demoThread =new Thread(new ThreadStart(threadMethod)); </span><br><span class="line">&gt;             demoThread.Start();//启动线程         </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      private void threadMethod() &#123;</span><br><span class="line">&gt;          syncContext.Post(changeControl, &quot;修改后的文本&quot;);//子线程中通过UI线程上下文更新UI </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      prviate void changeControl()&#123;</span><br><span class="line">&gt;          //执行设置控件代码</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><h4 id="使用控件自身的invoke-BeginInvoke方法"><a href="#使用控件自身的invoke-BeginInvoke方法" class="headerlink" title="使用控件自身的invoke/BeginInvoke方法"></a><strong>使用控件自身的invoke/BeginInvoke方法</strong></h4><p>&emsp;&emsp;继承Control类的UI控件都可以使用Invoke方法异步更新</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; private void button6_Click(object sender, EventArgs e) </span><br><span class="line">&gt; &#123; </span><br><span class="line">&gt;    Thread demoThread =new Thread(new ThreadStart(threadMethod)); </span><br><span class="line">&gt;    demoThread.IsBackground = true; </span><br><span class="line">&gt;    demoThread.Start();//启动线程 </span><br><span class="line">&gt; &#125; </span><br><span class="line">&gt;   </span><br><span class="line">&gt;  void threadMethod() </span><br><span class="line">&gt;  &#123;  </span><br><span class="line">&gt;    Action&lt;String&gt; AsyncUIDelegate=delegate(string n)&#123;label1.Text=n;&#125;;</span><br><span class="line">&gt;    label1.Invoke(AsyncUIDelegate,new object[]&#123;&quot;修改后的label1文本&quot;&#125;); </span><br><span class="line">&gt;  &#125; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-</blockquote>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/18/2019-05-18- C# 访问UI线程的方法/" data-id="cjzm0nunk000ar4ta3de0ktpi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
 
     </footer>
   </div>
@@ -1020,7 +964,63 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/18/2019-05-18- C# 委托/" data-id="cjzm0nunk000br4taptbdttq4" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/05/18/2019-05-18- C# 委托/" data-id="cjzm0vspy000daota49l8hu5y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-05-18- C# 访问UI线程的方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/" class="article-date">
+  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/">C# 访问UI线程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>C# 访问UI线程</b></h2></center><br>
+
+<ul>
+<li><h4 id="采用SynchronizationContext的Post-Send方法更新"><a href="#采用SynchronizationContext的Post-Send方法更新" class="headerlink" title="采用SynchronizationContext的Post/Send方法更新"></a>采用SynchronizationContext的Post/Send方法更新</h4><p>​        异步更新UI控件需要两步：</p>
+<p>&emsp;&emsp; 1. 是要获取UI线程的上下文</p>
+<p>&emsp;&emsp; 2. 调用post方法</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; public class ChangeUI //处在另一个线程</span><br><span class="line">&gt; &#123;</span><br><span class="line">&gt;      SynchronizationContext _syncContext = null; </span><br><span class="line">&gt; </span><br><span class="line">&gt;      publc ChangeUI()&#123;</span><br><span class="line">&gt;          _syncContext = SynchronizationContext.Current; </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      public update()&#123;</span><br><span class="line">&gt;             Thread demoThread =new Thread(new ThreadStart(threadMethod)); </span><br><span class="line">&gt;             demoThread.Start();//启动线程         </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      private void threadMethod() &#123;</span><br><span class="line">&gt;          syncContext.Post(changeControl, &quot;修改后的文本&quot;);//子线程中通过UI线程上下文更新UI </span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;      prviate void changeControl()&#123;</span><br><span class="line">&gt;          //执行设置控件代码</span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><h4 id="使用控件自身的invoke-BeginInvoke方法"><a href="#使用控件自身的invoke-BeginInvoke方法" class="headerlink" title="使用控件自身的invoke/BeginInvoke方法"></a><strong>使用控件自身的invoke/BeginInvoke方法</strong></h4><p>&emsp;&emsp;继承Control类的UI控件都可以使用Invoke方法异步更新</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&gt; private void button6_Click(object sender, EventArgs e) </span><br><span class="line">&gt; &#123; </span><br><span class="line">&gt;    Thread demoThread =new Thread(new ThreadStart(threadMethod)); </span><br><span class="line">&gt;    demoThread.IsBackground = true; </span><br><span class="line">&gt;    demoThread.Start();//启动线程 </span><br><span class="line">&gt; &#125; </span><br><span class="line">&gt;   </span><br><span class="line">&gt;  void threadMethod() </span><br><span class="line">&gt;  &#123;  </span><br><span class="line">&gt;    Action&lt;String&gt; AsyncUIDelegate=delegate(string n)&#123;label1.Text=n;&#125;;</span><br><span class="line">&gt;    label1.Invoke(AsyncUIDelegate,new object[]&#123;&quot;修改后的label1文本&quot;&#125;); </span><br><span class="line">&gt;  &#125; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/05/18/2019-05-18- C# 访问UI线程的方法/" data-id="cjzm0vspw000baotafn0g8ukb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
@@ -1240,7 +1240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/05/09/2019-05-09-Intel .hex file/" data-id="cjzm0nung0005r4tas6t0qsdt" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/05/09/2019-05-09-Intel .hex file/" data-id="cjzm0vspu0008aota5106xny5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/downloader/">downloader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mcu/">mcu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parsing-file/">parsing file</a></li></ul>
@@ -1286,56 +1286,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/26/2019-04-24- Noted/" data-id="cjzm0nune0003r4tau1ko2csj" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/04/26/2019-04-24- Noted/" data-id="cjzm0vspq0004aotaz1e37lkq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poems/">poems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentence/">sentence</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2019-04-24- C++ Sorting" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/24/2019-04-24- C++ Sorting/" class="article-date">
-  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">2019-04-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/04/24/2019-04-24- C++ Sorting/">Sorting</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center><h2><b>Sorting</b></h2></center><br>
-
-<h3 id="C-排序算法："><a href="#C-排序算法：" class="headerlink" title="C++ 排序算法："></a>C++ 排序算法：</h3><h4 id="归并："><a href="#归并：" class="headerlink" title="归并："></a><strong>归并：</strong></h4><hr>
-<p><strong>原理 ：</strong></p>
-<p>​    归并排序：采用归并的思想，分治策略。<br>    将数据不断的进行二分，直到二分为仅一个数。回溯，两个数进行<em>归并</em> 之后，回溯，进行四个数据的<em>归并</em>。在归并时根据要求按顺序合并。依次回溯至迭代起点，归并排序就已完成。</p>
-<p>​    归并的过程：就是将两组顺序的数据，根据数据的大小顺序存入连续内存空间，从而使得数据有序。</p>
-<p><strong>代码：</strong></p>
-<p>Please wait the lazy man!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/24/2019-04-24- C++ Sorting/" data-id="cjzm0nunh0007r4tapq42zpt4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
     </footer>
   </div>
@@ -1378,10 +1332,82 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/24/2019-04-22-Review C++(continuing)/" data-id="cjzm0nuna0001r4ta3fuqcp9m" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/04/24/2019-04-22-Review C++(continuing)/" data-id="cjzm0vspl0001aota7v998ifz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-24- some words" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/24/2019-04-24- some words/" class="article-date">
+  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">2019-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/24/2019-04-24- some words/">语情集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>语情集</b></h2></center><br>
+
+
+<h3 id="信手一笔："><a href="#信手一笔：" class="headerlink" title="信手一笔："></a>信手一笔：</h3><p><strong>云志：</strong></p>
+<blockquote>
+<p>不知似梦似前程，信步青云脚下踩。 <br>长途漫漫不济路，只为千里赏昙花。</p>
+</blockquote>
+<blockquote>
+<p> 望，细呷今朝淡觉甜<br>盼，酌品前途深作研</p>
+</blockquote>
+<p><strong>思乡：</strong></p>
+<blockquote>
+<p>洋洋溢溢归故去<br><br>摇身梦醒过辰时<br>身在外婆桥下走<br>良辰佳节惜寸金</p>
+</blockquote>
+<p><strong>道情：</strong></p>
+<blockquote>
+<p>一系扬州红绳，从此思念相瘦<br></p>
+</blockquote>
+<blockquote>
+<p>十八束发成人日，一指白蜜不忍抹<br>两眸相视情初起，如今朝夕已四年</p>
+</blockquote>
+<blockquote>
+<p>万卷书来不如汝之一频、一笑、一驻留。<br>一纸情深堪比鸳鸯百媚、千转、万间情。</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<!--**自省**-->
+
+
+
+
+
+
+
+<h3 id><a href="#" class="headerlink" title></a><!--摘：--></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/04/24/2019-04-24- some words/" data-id="cjzm0vspr0005aotaizmox9sw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poems/">poems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentence/">sentence</a></li></ul>
 
     </footer>
   </div>
@@ -1456,7 +1482,7 @@
           </li>
         
           <li>
-            <a href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/">C# 访问UI线程</a>
+            <a href="/2019/05/18/2019-05-18- C# 委托/">C# 委托</a>
           </li>
         
       </ul>
