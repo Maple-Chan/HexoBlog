@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives | Hexo</title>
+  <title>Review C++(continuing) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Review C++ ### C++ 注意点记录：  数组与指针： ​        在一定程度上，数组与指针是可以对等的，但是今天（2019-4-22）发现了一个不同。 ​        数组在想要获得元素长度的时候可以根据 sizeof(array) / sizeof(array[0]) 进行获得，而指针则不行，因为指针在32位上 sizeof(pointer) == 4；64位上sizeof">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Review C++(continuing)">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/2019-04-22-Review C++(continuing)/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Review C++ ### C++ 注意点记录：  数组与指针： ​        在一定程度上，数组与指针是可以对等的，但是今天（2019-4-22）发现了一个不同。 ​        数组在想要获得元素长度的时候可以根据 sizeof(array) / sizeof(array[0]) 进行获得，而指针则不行，因为指针在32位上 sizeof(pointer) == 4；64位上sizeof">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-04-24T10:05:49.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Review C++(continuing)">
+<meta name="twitter:description" content="Review C++ ### C++ 注意点记录：  数组与指针： ​        在一定程度上，数组与指针是可以对等的，但是今天（2019-4-22）发现了一个不同。 ​        数组在想要获得元素长度的时候可以根据 sizeof(array) / sizeof(array[0]) 进行获得，而指针则不行，因为指针在32位上 sizeof(pointer) == 4；64位上sizeof">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,216 +65,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/07/15/2019-07-15- Kotlin 学习记录/" class="archive-article-date">
-  <time datetime="2019-07-14T16:00:00.000Z" itemprop="datePublished">Jul 15</time>
+        <section id="main"><article id="post-2019-04-22-Review C++(continuing)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/24/2019-04-22-Review C++(continuing)/" class="article-date">
+  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">2019-04-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/15/2019-07-15- Kotlin 学习记录/">Kotlin 学习记录</a>
+    <h1 class="article-title" itemprop="name">
+      Review C++(continuing)
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/31/2019-05-31- C# 查看串口/" class="archive-article-date">
-  <time datetime="2019-05-30T16:00:00.000Z" itemprop="datePublished">May 31</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/31/2019-05-31- C# 查看串口/">C# 查看串口</a>
-    </h1>
-  
+        <center><h2><b>Review C++</b></h2></center><br>
+### C++ 注意点记录：
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/30/2019-05-30- C# 监听串口插拔事件/" class="archive-article-date">
-  <time datetime="2019-05-29T16:00:00.000Z" itemprop="datePublished">May 30</time>
-</a>
+<p><strong>数组与指针：</strong></p>
+<p>​        在一定程度上，数组与指针是可以对等的，但是今天（2019-4-22）发现了一个不同。</p>
+<p>​        数组在想要获得元素长度的时候可以根据 sizeof(array) / sizeof(array[0]) 进行获得，而指针则不行，因为指针在32位上 sizeof(pointer) == 4；64位上sizeof(pointer) == 8; 这是sizeof在使用过程当中需要注意的问题。</p>
+<p>​        当然，如果用malloc 进行内存空间申请的话，可以用sizeof进行获取分配的数据长度，通过除以元素长度可获得元素个数，因为malloc会分配额外空间进行存储数据大小。</p>
+<p>​    （malloc 语法：        char *mPtr = NULL; mPtr = (char *)malloc( size * sizeof(char));  ）</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/30/2019-05-30- C# 监听串口插拔事件/">C# 监听串口插拔事件</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/19/2019-05-19- 设计模式/" class="archive-article-date">
-  <time datetime="2019-05-18T16:00:00.000Z" itemprop="datePublished">May 19</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/24/2019-04-22-Review C++(continuing)/" data-id="cjzm0nuna0001r4ta3fuqcp9m" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/19/2019-05-19- 设计模式/">设计模式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/" class="archive-article-date">
-  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">May 18</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/18/2019-05-18- C# 访问UI线程的方法/">C# 访问UI线程</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/24/2019-04-24- C++ Sorting/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Sorting
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/04/24/2019-04-24- some words/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">语情集</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/18/2019-05-18- C# 委托/" class="archive-article-date">
-  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">May 18</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/18/2019-05-18- C# 委托/">C# 委托</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/05/09/2019-05-09-Intel .hex file/" class="archive-article-date">
-  <time datetime="2019-05-08T16:00:00.000Z" itemprop="datePublished">May 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/05/09/2019-05-09-Intel .hex file/">.HEX file</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/26/2019-04-24- Noted/" class="archive-article-date">
-  <time datetime="2019-04-25T16:00:00.000Z" itemprop="datePublished">Apr 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/26/2019-04-24- Noted/">Job Noted</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/24/2019-04-24- C++ Sorting/" class="archive-article-date">
-  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">Apr 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/24/2019-04-24- C++ Sorting/">Sorting</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/24/2019-04-22-Review C++(continuing)/" class="archive-article-date">
-  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">Apr 24</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/24/2019-04-22-Review C++(continuing)/">Review C++(continuing)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
