@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kotlin 学习记录（逻辑控制） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  逻辑控制 IF  ​       需要注意，Kotlin中没有三元运算符 :?, 因为if表达式会有返回值，当条件内逻辑为代码段时，则选择最后一句的值作为返回值。  FOR  ​       Kotlin中不再有 for(int i=0;i&amp;lt;n;++i) 这种语法。   关键字 until  123">
+<meta name="keywords" content="Kotlin学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 学习记录（逻辑控制）">
+<meta property="og:url" content="http://maplestory.work/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  逻辑控制 IF  ​       需要注意，Kotlin中没有三元运算符 :?, 因为if表达式会有返回值，当条件内逻辑为代码段时，则选择最后一句的值作为返回值。  FOR  ​       Kotlin中不再有 for(int i=0;i&amp;lt;n;++i) 这种语法。   关键字 until  123">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-25T05:39:03.197Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin 学习记录（逻辑控制）">
+<meta name="twitter:description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  逻辑控制 IF  ​       需要注意，Kotlin中没有三元运算符 :?, 因为if表达式会有返回值，当条件内逻辑为代码段时，则选择最后一句的值作为返回值。  FOR  ​       Kotlin中不再有 for(int i=0;i&amp;lt;n;++i) 这种语法。   关键字 until  123">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://maplestory.work"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-07-15- Kotlin 学习记录(逻辑控制) - 副本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/" class="article-date">
+  <time datetime="2019-07-14T16:00:00.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin 学习记录（逻辑控制）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b> Kotlin 学习记录 </b></h2></center><br>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文只记录重要的或者与C/C++、Java 出入较大的内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="逻辑控制"><a href="#逻辑控制" class="headerlink" title="逻辑控制"></a>逻辑控制</h2><ol>
+<li><code>IF</code></li>
+</ol>
+<p>​       需要注意，Kotlin中没有三元运算符 <code>:?</code>, 因为<code>if</code>表达式会有返回值，当条件内逻辑为代码段时，则选择最后一句的值作为返回值。</p>
+<ol start="2">
+<li><code>FOR</code></li>
+</ol>
+<p>​       Kotlin中不再有 <code>for(int i=0;i&lt;n;++i)</code> 这种语法。</p>
+<blockquote>
+<ul>
+<li>关键字 until</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">0</span> until <span class="number">5</span>)&#123;</span><br><span class="line">&gt; print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>) <span class="comment">//until[0,5)</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>关键词downTo</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; 	<span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">15</span> downTo <span class="number">0</span>)&#123;</span><br><span class="line">&gt; 	print(<span class="string">"i=&gt; <span class="variable">$i</span> \t"</span>) <span class="comment">//downTo[15-&gt;0]</span></span><br><span class="line">&gt; 	&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>关键符号“..”</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; print(<span class="string">"使用 符号`..`的打印结果\n"</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">20</span> .. <span class="number">25</span>)&#123;</span><br><span class="line">&gt; print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; println() <span class="comment">//输出结果为 	i=&gt;20 i=&gt;21 i=&gt;22 i=&gt;23 i=&gt;24 i=&gt;25	</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>设置步长</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">10</span> until <span class="number">16</span> step <span class="number">2</span>)&#123;</span><br><span class="line">&gt; print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)  <span class="comment">//输出10，12，14</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>迭代</li>
+</ul>
+<blockquote>
+<p>提供一个迭代器来遍历任何东西；数组被编译为一个基于索引的循环，<strong>他不会创建一个迭代器对象</strong></p>
+</blockquote>
+<ul>
+<li>遍历字符串</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="string">"abcdefg"</span>)&#123;</span><br><span class="line">&gt; 	print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>遍历数组</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListOne = arrayOf(<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> arrayListOne)&#123;</span><br><span class="line">&gt;     print(<span class="string">"i =&gt; <span class="variable">$i</span> \t"</span>)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用indices遍历数组</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListTwo = arrayOf(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">for</span> (i <span class="keyword">in</span> arrayListTwo.indices)&#123;</span><br><span class="line">&gt; 	println(<span class="string">"arrayListTwo[<span class="variable">$i</span>] =&gt; "</span> + arrayListTwo[i])</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用withIndex()遍历数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; var arrayListTwo = arrayOf(1,3,5,7,9)</span><br><span class="line">&gt; for ((index,value) in arrayListTwo.withIndex())&#123;</span><br><span class="line">&gt;     println(&quot;index =&gt; $index \t value =&gt; $value&quot;)</span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>使用列表或数组的扩展函数遍历</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">var</span> arrayListThree = arrayOf(<span class="number">2</span>,<span class="string">'a'</span>,<span class="number">3</span>,<span class="literal">false</span>,<span class="number">9</span>)</span><br><span class="line">&gt; <span class="keyword">var</span> iterator: Iterator&lt;Any&gt; = arrayListThree.iterator()</span><br><span class="line">&gt; <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">&gt;     println(iterator.next())</span><br><span class="line">&gt; &#125;  </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>//需要学习 Kotlin中的 it关键字 / Array函数本质 / lamda表达 / 函数定义</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/" data-id="cjzqjqyyi000qrotasz5xsm4d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Kotlin 学习记录（Lambda &amp; 空类型）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(类) /" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Kotlin 学习记录（类相关）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/downloader/">downloader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/halve/">halve</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mcu/">mcu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/parsing-file/">parsing file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poems/">poems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sentence/">sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口通讯/">串口通讯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Kotlin学习/" style="font-size: 20px;">Kotlin学习</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/downloader/" style="font-size: 10px;">downloader</a> <a href="/tags/halve/" style="font-size: 10px;">halve</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/mcu/" style="font-size: 10px;">mcu</a> <a href="/tags/parsing-file/" style="font-size: 10px;">parsing file</a> <a href="/tags/poems/" style="font-size: 12.5px;">poems</a> <a href="/tags/sentence/" style="font-size: 12.5px;">sentence</a> <a href="/tags/串口通讯/" style="font-size: 12.5px;">串口通讯</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/22/2019-08-22- DNS解析学习(基于阿里云解析自己域名实例)/">DNS解析学习</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/">Kotlin 学习记录（Lambda &amp; 空类型）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/">Kotlin 学习记录（逻辑控制）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(类) /">Kotlin 学习记录（类相关）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(常变量)/">Kotlin 学习记录（常变量、数据类型）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

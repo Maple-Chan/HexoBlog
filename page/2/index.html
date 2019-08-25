@@ -62,6 +62,491 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2019-05-18- C# 委托" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/18/2019-05-18- C# 委托/" class="article-date">
+  <time datetime="2019-05-17T16:00:00.000Z" itemprop="datePublished">2019-05-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/18/2019-05-18- C# 委托/">C# 委托</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>C# 委托</b></h2></center><br>
+
+<ul>
+<li><strong>委托的概念</strong>：<br></li>
+</ul>
+<p>&emsp;委托是一个类，它定义了方法的类型，使一个方法可以当作另一个方法的参数来进行传递，这种将方法动态地赋给参数的做法，可以避免在程序中大量使用If-Else(Switch)语句，同时使得程序具有更好的可扩展性。。 </p>
+<ul>
+<li><p><strong>常见委托的使用</strong>：<br></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; delegate int MethodDelegate(int x,inty);</span><br><span class="line">&gt; </span><br><span class="line">&gt; MethodDelegate method = new MethodDelegate(function_name);</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;  MethodDelegate method = function_name;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>&emsp;<strong>将对应的函数名放入function_name位置，函数的签名需要和委托声明的一样。</strong></p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; //使用匿名方法</span><br><span class="line">&gt; MyDelegate myDelegate = delegate(int x, int y)</span><br><span class="line">&gt; &#123;</span><br><span class="line">&gt;     return x + y;</span><br><span class="line">&gt; &#125;;</span><br><span class="line">&gt; </span><br><span class="line">&gt; //使用Lambda表达式</span><br><span class="line">&gt; MyDelegate myDelegateLambda = (int x, int y) =&gt; &#123; return x + y; &#125;;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>其他委托的分类</strong>：</p>
+<p><strong>1.Action</strong></p>
+<p>Action作为一种反省委托，不具备返回值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Test&lt;string&gt;(Action,&quot;Hello World!&quot;);</span><br><span class="line">            Test&lt;int&gt;(Action, 1000);</span><br><span class="line">            Test&lt;string&gt;(p =&gt; &#123; Console.WriteLine(&quot;&#123;0&#125;&quot;, p); &#125;, &quot;Hello World&quot;);</span><br><span class="line">    		//使用Lambda表达式定义委托</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">        public static void Test&lt;T&gt;(Action&lt;T&gt; action, T p)</span><br><span class="line">        &#123;</span><br><span class="line">            Action(p);</span><br><span class="line">        &#125;</span><br><span class="line">        private static void Action(string s)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(s);</span><br><span class="line">        &#125;</span><br><span class="line">        private static void Action(int s)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(s);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.Func</strong></p>
+<p>Func是返回值的泛型委托</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(Test&lt;int,int&gt;(Fun,100,200));</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line">        public static int Test&lt;T1, T2&gt;(Func&lt;T1, T2, int&gt; func, T1 a, T2 b)</span><br><span class="line">        &#123;</span><br><span class="line">            return func(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        private static int Fun(int a, int b)</span><br><span class="line">        &#123;</span><br><span class="line">            return a + b;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.predicate</strong>：</p>
+<p>predicate是返回值bool的泛型委托</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public delegate int MethodDelegate(int x, int y);</span><br><span class="line">        private static MethodDelegate method;</span><br><span class="line">        static void Main(string[] args)</span><br><span class="line">        &#123;</span><br><span class="line">            method = new MethodDelegate(Add);</span><br><span class="line">            Console.WriteLine(method(10,20));</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private static int Add(int x, int y)</span><br><span class="line">        &#123;</span><br><span class="line">            return x + y;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<ul>
+<li><p><strong>委托的好处</strong>：</p>
+<ol>
+<li><p>相当于用方法作为另一方法参数(类似于C的函数指针)</p>
+</li>
+<li><p>在两个不能直接调用的方法中作为桥梁,如:在多线程中的跨线程的方法调用就得用委托</p>
+</li>
+<li><p>当不知道方法具体实现什么时使用委托,如:事件中使用委托</p>
+</li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p><strong>注意事项与特点</strong>：<br></p>
+<p>&emsp;1. 虽然委托的定义有点像方法的声明，但是委托是属于类的层面。</p>
+<p>&emsp;2. 委托类似于C++的函数指针，但是它是类型安全的</p>
+<p>&emsp;3.委托允许将方法作为参数进行传递。</p>
+<p>&emsp;4. Delegate至少0个参数，至多32个参数，可以无返回值，也可以指定返回值类型</p>
+<p>　5. Func可以接受0个至16个传入参数，必须具有返回值</p>
+<p>　6. Action可以接受0个至16个传入参数，无返回值</p>
+<p>　7 Predicate只能接受一个传入参数，返回值为bool类型</p>
+</li>
+</ul>
+<p>相关博客：</p>
+<p>​        <a href="https://www.cnblogs.com/yinqixin/p/5056307.html" target="_blank" rel="noopener">分分钟用上C#中的委托和事件</a> （该文学习将委托是事件结合，从而实现一个对象发送指令，其他的对象根据不同指令进行自己的操作的功能）</p>
+<p>​        </p>
+<p>Thanks to <a href="https://www.cnblogs.com/zhangchenliang/" target="_blank" rel="noopener">Danny Chen</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/05/18/2019-05-18- C# 委托/" data-id="cjzqjqyy7000grota8qcrufx6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C#</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-05-09-Intel .hex file" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/09/2019-05-09-Intel .hex file/" class="article-date">
+  <time datetime="2019-05-08T16:00:00.000Z" itemprop="datePublished">2019-05-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/09/2019-05-09-Intel .hex file/">.HEX file</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>.HEX file</b></h2></center><br>
+
+
+<h3 id="HEX-文件介绍"><a href="#HEX-文件介绍" class="headerlink" title="HEX 文件介绍"></a>HEX 文件介绍</h3><p>&emsp;Keil HEX文件是由一行行符合Intel HEX文件格式的文本所构成的ASCII文本文件。在Intel HEX文件中，每一行包含一个HEX记录。这些记录由对应机器语言码和/或常量数据的十六进制编码数字组成。Intel HEX文件通常用于传输将被存于ROM或者EPROM中的程序和数据。大多数EPROM编程器或模拟器使用Intel HEX文件。 </p>
+<h3 id="文件解析"><a href="#文件解析" class="headerlink" title="文件解析"></a>文件解析</h3><ul>
+<li><p><strong>记录格式</strong>：<br>&emsp;Intel HEX由任意数量的十六进制记录组成。每个记录包含5个域，它们按以下格式排列： </p>
+<blockquote>
+<p>:llaaaatt[dd…]cc </p>
+</blockquote>
+<p>&emsp;每一组字母对应一个不同的域，每一个字母对应一个<strong>十六进制</strong>编码的数字。每一个域由至少两个十六进制编码数字组成，它们构成一个字节，如下描述： </p>
+<table>
+<thead>
+<tr>
+<th align="left">符号</th>
+<th align="left">符号意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">:</td>
+<td align="left">每个Intel HEX记录都由冒号开头.</td>
+</tr>
+<tr>
+<td align="left">ll</td>
+<td align="left">是<strong>数据长度域</strong>,它代表记录当中数据字节(dd)的数量.</td>
+</tr>
+<tr>
+<td align="left">aaaa</td>
+<td align="left">是<strong>地址域</strong>,它代表记录当中数据的起始地址.</td>
+</tr>
+<tr>
+<td align="left"><strong>tt</strong></td>
+<td align="left">是代表HEX记录类型的域,它可能是以下数据当中的一个:<br>&gt; 00 – 数据记录<br>&gt; 01 – 文件结束记录<br>&gt; 02 – 扩展段地址记录 <br>&gt; 04 – 扩展线性地址记录<br>&gt; 05 - 运行地址记录</td>
+</tr>
+<tr>
+<td align="left">dd</td>
+<td align="left">是<strong>数据域</strong>,它代表一个字节的数据. 一个记录可以有许多数据字节.记录当中数据字节的数量必须和数据长度域(ll)中指定的数字相符.</td>
+</tr>
+<tr>
+<td align="left">cc</td>
+<td align="left">是校验和域,它表示这个记录的校验和.校验和的计算是通过将记录当中所有十六进制编码数字对的值相加,以256为模进行以下补足.</td>
+</tr>
+</tbody></table>
+</li>
+<li><p><strong>扩展线性地址记录</strong>(HEX386) ：<br><br>&emsp;扩展线性地址记录也叫作32位地址记录或HEX386记录.这些记录包含数据地址的高16位.扩展线性地址记录总是有两个数据字节,外观如下: </p>
+<blockquote>
+<p>:02000004FFFFFC </p>
+</blockquote>
+<p>其中: </p>
+<table>
+<thead>
+<tr>
+<th align="left">数据</th>
+<th>数据意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">02</td>
+<td>这个记录当中数据字节的数量</td>
+</tr>
+<tr>
+<td align="left">0000</td>
+<td>地址域,对于扩展线性地址记录,这个域总是0000.</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td>记录类型 04(扩展线性地址记录)</td>
+</tr>
+<tr>
+<td align="left"><strong>FFFF</strong></td>
+<td>地址的高16位.</td>
+</tr>
+<tr>
+<td align="left">FC</td>
+<td>是这个记录的校验和,计算方法如下: <br>&gt;&gt; 01h + NOT(02h + 00h + 00h + 04h + FFh + FFh).</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>  &emsp;当一个扩展线性地址记录被读取,存储于数据域的扩展线性地址被保存,它被应用于从Intel HEX文件读取来的随后的记录.线性地址保持有效,直到它被另外一个扩展地址记录所改变. </p>
+<p>  &emsp;通过把记录当中的地址域与被移位的来自扩展线性地址记录的地址数据相加获得数据记录的绝对存储器地址. </p>
+<p>  假设：</p>
+<blockquote>
+<p>来自数据记录地址域的地址 2462 </p>
+<p>扩展线性地址记录的数据域 + FFFF </p>
+<p>绝对存储器地址 FFFF2462 </p>
+</blockquote>
+<hr>
+<ul>
+<li><p><strong>扩展段地址记录</strong>(HEX386) ：<br><br>&emsp;扩展段地址记录也叫HEX86记录,它包括<strong>4-19</strong>位数据地址段.扩展段地址记录总是有两个数据字节,外观如下: </p>
+<blockquote>
+<p>:020000021200EA </p>
+</blockquote>
+<p>其中: </p>
+<table>
+<thead>
+<tr>
+<th align="left">数据</th>
+<th>数据意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">02</td>
+<td>这个记录当中数据字节的数量</td>
+</tr>
+<tr>
+<td align="left">0000</td>
+<td>地址域.对于扩展段地址记录,这个域总是0000.</td>
+</tr>
+<tr>
+<td align="left">02</td>
+<td>是记录类型 02(扩展段地址记录)</td>
+</tr>
+<tr>
+<td align="left"><strong>1200</strong></td>
+<td>1200 是地址段.</td>
+</tr>
+<tr>
+<td align="left">EA</td>
+<td>是这个记录的校验和,计算方法如下:  &gt;&gt; 01h + NOT(02h + 00h + 00h + 02h + 12h + 00h).</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>  &emsp;当一个扩展段地址记录被读取,存储于数据域的扩展段地址被保存,它被应用于从Intel HEX文件读取来的随后的记录.段地址保持有效,直到它被另外一个扩展地址记录所改变. </p>
+<p>  &emsp;通过把记录当中的地址域与被移位的来自扩展段地址记录的地址数据相加获得数据记录的绝对存储器地址. </p>
+<p>  以下的例子演示了这个过程.</p>
+<blockquote>
+<p>来自数据记录地址域的地址 2462 </p>
+<p>扩展段地址记录数据域 + 1200 &lt;&lt;1</p>
+<p>绝对存储器地址 00014462 </p>
+</blockquote>
+<hr>
+<ul>
+<li><p><strong>文件结束(EOF)记录</strong>(HEX386) ：<br><br>&emsp;Intel HEX文件必须以文件结束(EOF)记录结束.这个记录的记录类型域的值必须是01.EOF记录外观总是如下: </p>
+<blockquote>
+<p>:00000001FF </p>
+</blockquote>
+<p>其中: </p>
+<table>
+<thead>
+<tr>
+<th align="left">数据</th>
+<th>数据意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">00</td>
+<td>这个记录当中数据字节的数量</td>
+</tr>
+<tr>
+<td align="left">0000</td>
+<td>是数据被下载到存储器当中的地址.在文件结束记录当中地址是没有意义被忽略的.0000h是典型的地址.</td>
+</tr>
+<tr>
+<td align="left">01</td>
+<td>记录类型 01(文件结束记录)</td>
+</tr>
+<tr>
+<td align="left">FF</td>
+<td>这个记录的校验和,计算方法如下: <br>&gt;&gt; 01h + NOT(00h + 00h + 00h + 01h).</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p><strong>文件整体分析</strong> ：<br><br></p>
+<p>第一行 :02 0000 04 0800 F2</p>
+<p>第二行 :10 0000 00 <strong>78060020</strong>51040008690200086B020008 0D</p>
+<p>&emsp;&emsp;注意：地址是大开端，0800+0000 = 0x08000000</p>
+<p><strong>&emsp;&emsp;78060020</strong>是MSP初始值，其实为0x20000678,是小开端。</p>
+<p>&emsp;&emsp;51040008 = 08000451 reset isr地址</p>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">151:             LDR     R0, =SystemInit   ß-----------resetHandle</span><br><span class="line"></span><br><span class="line">0x08000450 4809  LDR      r0,[pc,#36]  ; @0x08000478</span><br><span class="line"></span><br><span class="line">152:             BLX     R0                </span><br><span class="line"></span><br><span class="line">0x08000452 4780  BLX      r0</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>  倒数第二行 :04 0000 05 08000131 BD， 05表示开始运行地址，08000131是地址的值。</p>
+<p>  倒数第一行 :00 0000 01 FF，hex文档结束</p>
+<p>  &emsp;08000131为开始地址_main(),08000451为resetHandle地址，由于resethandle里面有systeminit函数，所以以resethandle为准！这两个都不用下载。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/05/09/2019-05-09-Intel .hex file/" data-id="cjzqjqyzc001orotavhvs4bcv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/downloader/">downloader</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mcu/">mcu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parsing-file/">parsing file</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-24- Noted" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/26/2019-04-24- Noted/" class="article-date">
+  <time datetime="2019-04-25T16:00:00.000Z" itemprop="datePublished">2019-04-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/26/2019-04-24- Noted/">Job Noted</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>Noted</b></h2></center><br>
+
+
+<h3 id="华为："><a href="#华为：" class="headerlink" title="华为："></a>华为：</h3><p><strong>实习：</strong></p>
+<p>华为实习生分类（可在杭州）：</p>
+<p>​        （通用软件工程师）无线网络产品线、数据通信产品线、Cloud &amp; AI(Cloud BU)、Cloud &amp; AI(IT产品线)、海思半导体与器件业务部。</p>
+<p>​        （操作系统工程师）中央软件院、中央研究院</p>
+<p>​        （云计算开发工程师）无线网络产品线、数据通信产品线、Cloud &amp; AI(Cloud BU)、Cloud &amp; AI(IT产品线)、海思半导体与器件业务部、中央软件院。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/04/26/2019-04-24- Noted/" data-id="cjzqjqyxy0008rotabgki5wpo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poems/">poems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentence/">sentence</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-24- some words" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/24/2019-04-24- some words/" class="article-date">
+  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">2019-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/24/2019-04-24- some words/">语情集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>语情集</b></h2></center><br>
+
+
+<h3 id="信手一笔："><a href="#信手一笔：" class="headerlink" title="信手一笔："></a>信手一笔：</h3><p><strong>云志：</strong></p>
+<blockquote>
+<p>不知似梦似前程，信步青云脚下踩。 <br>长途漫漫不济路，只为千里赏昙花。</p>
+</blockquote>
+<blockquote>
+<p> 望，细呷今朝淡觉甜<br>盼，酌品前途深作研</p>
+</blockquote>
+<p><strong>思乡：</strong></p>
+<blockquote>
+<p>洋洋溢溢归故去<br><br>摇身梦醒过辰时<br>身在外婆桥下走<br>良辰佳节惜寸金</p>
+</blockquote>
+<p><strong>道情：</strong></p>
+<blockquote>
+<p>一系扬州红绳，从此思念相瘦<br></p>
+</blockquote>
+<blockquote>
+<p>十八束发成人日，一指白蜜不忍抹<br>两眸相视情初起，如今朝夕已四年</p>
+</blockquote>
+<blockquote>
+<p>万卷书来不如汝之一频、一笑、一驻留。<br>一纸情深堪比鸳鸯百媚、千转、万间情。</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<!--**自省**-->
+
+
+
+
+
+
+
+<h3 id><a href="#" class="headerlink" title></a><!--摘：--></h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/04/24/2019-04-24- some words/" data-id="cjzqjqyy3000brotabwwt860c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/poems/">poems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sentence/">sentence</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-04-22-Review C++(continuing)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/24/2019-04-22-Review C++(continuing)/" class="article-date">
+  <time datetime="2019-04-23T16:00:00.000Z" itemprop="datePublished">2019-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/04/24/2019-04-22-Review C++(continuing)/">Review C++(continuing)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b>Review C++</b></h2></center><br>
+### C++ 注意点记录：
+
+<p><strong>数组与指针：</strong></p>
+<p>​        在一定程度上，数组与指针是可以对等的，但是今天（2019-4-22）发现了一个不同。</p>
+<p>​        数组在想要获得元素长度的时候可以根据 sizeof(array) / sizeof(array[0]) 进行获得，而指针则不行，因为指针在32位上 sizeof(pointer) == 4；64位上sizeof(pointer) == 8; 这是sizeof在使用过程当中需要注意的问题。</p>
+<p>​        当然，如果用malloc 进行内存空间申请的话，可以用sizeof进行获取分配的数据长度，通过除以元素长度可获得元素个数，因为malloc会分配额外空间进行存储数据大小。</p>
+<p>​    （malloc 语法：        char *mPtr = NULL; mPtr = (char *)malloc( size * sizeof(char));  ）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/04/24/2019-04-22-Review C++(continuing)/" data-id="cjzqjqyxw0007rota434nf49t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2019-04-24- C++ Sorting" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/24/2019-04-24- C++ Sorting/" class="article-date">
@@ -96,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://maplestory.work/2019/04/24/2019-04-24- C++ Sorting/" data-id="cjzm3yhi6000listanhfz1ehs" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/04/24/2019-04-24- C++ Sorting/" data-id="cjzqjqyy1000arotad0oh5cdr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
@@ -144,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://maplestory.work/2019/04/19/2019-04-19-About-this-blog/" data-id="cjzm3yhgz0001istac3luz7gg" class="article-share-link">Share</a>
+      <a data-url="http://maplestory.work/2019/04/19/2019-04-19-About-this-blog/" data-id="cjzqjqyx20000rotad1ses39j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blog/">blog</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/halve/">halve</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jekyll/">jekyll</a></li></ul>
@@ -174,7 +659,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin/">Kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/downloader/">downloader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/halve/">halve</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mcu/">mcu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/parsing-file/">parsing file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poems/">poems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sentence/">sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口通讯/">串口通讯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/downloader/">downloader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/halve/">halve</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mcu/">mcu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/parsing-file/">parsing file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poems/">poems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sentence/">sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口通讯/">串口通讯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
     </div>
   </div>
 
@@ -184,7 +669,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 20px;">C#</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/downloader/" style="font-size: 10px;">downloader</a> <a href="/tags/halve/" style="font-size: 10px;">halve</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/mcu/" style="font-size: 10px;">mcu</a> <a href="/tags/parsing-file/" style="font-size: 10px;">parsing file</a> <a href="/tags/poems/" style="font-size: 13.33px;">poems</a> <a href="/tags/sentence/" style="font-size: 13.33px;">sentence</a> <a href="/tags/串口通讯/" style="font-size: 13.33px;">串口通讯</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Kotlin学习/" style="font-size: 20px;">Kotlin学习</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/downloader/" style="font-size: 10px;">downloader</a> <a href="/tags/halve/" style="font-size: 10px;">halve</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/mcu/" style="font-size: 10px;">mcu</a> <a href="/tags/parsing-file/" style="font-size: 10px;">parsing file</a> <a href="/tags/poems/" style="font-size: 12.5px;">poems</a> <a href="/tags/sentence/" style="font-size: 12.5px;">sentence</a> <a href="/tags/串口通讯/" style="font-size: 12.5px;">串口通讯</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
     </div>
   </div>
 
@@ -193,7 +678,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
     </div>
   </div>
 
@@ -206,23 +691,23 @@
       <ul>
         
           <li>
-            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录/">Kotlin 学习记录</a>
+            <a href="/2019/08/22/2019-08-22- DNS解析学习(基于阿里云解析自己域名实例)/">DNS解析学习</a>
           </li>
         
           <li>
-            <a href="/2019/05/31/2019-05-31- C# 查看串口/">C# 查看串口</a>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/">Kotlin 学习记录（Lambda &amp; 空类型）</a>
           </li>
         
           <li>
-            <a href="/2019/05/30/2019-05-30- C# 监听串口插拔事件/">C# 监听串口插拔事件</a>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/">Kotlin 学习记录（逻辑控制）</a>
           </li>
         
           <li>
-            <a href="/2019/05/19/2019-05-19- 设计模式/">设计模式</a>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(类) /">Kotlin 学习记录（类相关）</a>
           </li>
         
           <li>
-            <a href="/2019/05/18/2019-05-18- C# 委托/">C# 委托</a>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(常变量)/">Kotlin 学习记录（常变量、数据类型）</a>
           </li>
         
       </ul>

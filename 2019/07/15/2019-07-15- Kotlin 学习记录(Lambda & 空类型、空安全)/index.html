@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Kotlin 学习记录（Lambda &amp; 空类型） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  Lambda 表达式语法  无参数的情况 12345678val fun1 = &amp;#123;9&amp;#125; //定义了一个返回了Int的函数//该定义参照了情况3//传入一个Lambda来表示的形式参数，该形参为一个无参返回Int的函数var fun11 : (()-&amp;gt;(Int)) -&amp;gt;Int">
+<meta name="keywords" content="Kotlin学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin 学习记录（Lambda &amp; 空类型）">
+<meta property="og:url" content="http://maplestory.work/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  Lambda 表达式语法  无参数的情况 12345678val fun1 = &amp;#123;9&amp;#125; //定义了一个返回了Int的函数//该定义参照了情况3//传入一个Lambda来表示的形式参数，该形参为一个无参返回Int的函数var fun11 : (()-&amp;gt;(Int)) -&amp;gt;Int">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-25T05:38:39.335Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kotlin 学习记录（Lambda &amp; 空类型）">
+<meta name="twitter:description" content="Kotlin 学习记录   1本文只记录重要的或者与C/C++、Java 出入较大的内容  Lambda 表达式语法  无参数的情况 12345678val fun1 = &amp;#123;9&amp;#125; //定义了一个返回了Int的函数//该定义参照了情况3//传入一个Lambda来表示的形式参数，该形参为一个无参返回Int的函数var fun11 : (()-&amp;gt;(Int)) -&amp;gt;Int">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://maplestory.work"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-07-15- Kotlin 学习记录(Lambda &amp; 空类型、空安全)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/" class="article-date">
+  <time datetime="2019-07-14T16:00:00.000Z" itemprop="datePublished">2019-07-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Kotlin 学习记录（Lambda &amp; 空类型）
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center><h2><b> Kotlin 学习记录 </b></h2></center><br>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">本文只记录重要的或者与C/C++、Java 出入较大的内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>  无参数的情况</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> fun1 = &#123;<span class="number">9</span>&#125; <span class="comment">//定义了一个返回了Int的函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//该定义参照了情况3</span></span><br><span class="line"><span class="comment">//传入一个Lambda来表示的形式参数，该形参为一个无参返回Int的函数</span></span><br><span class="line"><span class="keyword">var</span> fun11 : (()-&gt;(<span class="built_in">Int</span>)) -&gt;<span class="built_in">Int</span> = &#123;initfunc -&gt; initfunc()&#125; </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> value00 = fun11(fun1)</span><br><span class="line">println(<span class="string">"value00 =&gt; <span class="variable">$value00</span>"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  有参数的情况</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value1 = <span class="number">9</span></span><br><span class="line"><span class="keyword">val</span> fun2:(<span class="built_in">Int</span>,<span class="built_in">Int</span>)-&gt;<span class="built_in">Double</span> = &#123;a,b-&gt; (a-b).toDouble()&#125;</span><br><span class="line"><span class="keyword">var</span> value2 = fun2(value1,<span class="number">3</span>)</span><br><span class="line">println(<span class="string">"value2 =&gt; <span class="variable">$value2</span>"</span>)<span class="comment">//输出：value2 =&gt; 6.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//等价形式如下</span></span><br><span class="line"><span class="keyword">var</span> fun3 = &#123;a:<span class="built_in">Int</span>,b:<span class="built_in">Int</span> -&gt; a+b&#125;</span><br><span class="line"><span class="keyword">var</span> value3 = fun3(<span class="number">3</span>,<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">println(<span class="string">"value3 =&gt; <span class="variable">$value3</span>"</span>)<span class="comment">//输出：value3 =&gt; 9</span></span><br><span class="line"><span class="comment">//3. lambda表达式作为函数中的参数的时候，这里举一个例子：</span></span><br><span class="line"><span class="comment">//  fun test(a : Int, 参数名 : (参数1 ： 类型，参数2 : 类型, ... ) -&gt; 表达式返	 //回类型)&#123;</span></span><br><span class="line"><span class="comment">//     ...</span></span><br><span class="line"><span class="comment">//  &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下面两个新形式都可以作为value计算的表达式，fun与var功能似乎一样了？NO</span></span><br><span class="line"><span class="comment">//三种形式定义该test函数，fun声明，var声明，匿名函数。</span></span><br><span class="line"><span class="comment">//fun test(a:Int,b:Int,add:(Int,Int)-&gt;Int):Int&#123; return add(a,b)&#125;//是一个函数</span></span><br><span class="line"><span class="comment">//var test: (Int,Int,(Int,Int)-&gt;Int) -&gt; Int = &#123;a,b,add -&gt; add(a,b)&#125;//该变量是lambda变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test = <span class="function"><span class="title">fun</span><span class="params">(a:<span class="type">Int</span>,b:<span class="type">Int</span>,add:(<span class="type">Int</span>,<span class="type">Int</span>)-&gt;<span class="type">Int</span>)</span></span>:<span class="built_in">Int</span>&#123; <span class="keyword">return</span> add(a,b)&#125; <span class="comment">//是一个函数</span></span><br><span class="line"></span><br><span class="line">println(<span class="string">"value4 = <span class="variable">$value4</span>"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>  ​        <code>lambda</code>表达式总是被大括号括着</p>
+<p>  ​        定义完整的<code>Lambda</code>表达式如上面实例中的语法2，它有其完整的参数类型标注，与表达式返回值。当我们把一些类型标注省略的情况下，就如上面实例中的语法2的另外一种类型。当它推断出的返回值类型不为<code>Unit</code>时，它的返回值即为-&gt;符号后代码段中的最后一个表达式的类型（如同if-else语句块中的返回值一样）</p>
+<p>  ​        当函数的参数仅有一个Lambda表达式的时候可以<strong>省略参数的那个小括号</strong></p>
+<h3 id="it"><a href="#it" class="headerlink" title="it"></a>it</h3><ul>
+<li><p>it不是关键字</p>
+</li>
+<li><p>it在高阶函数中的lambda表达式的参数只有一个的时候可以使用<code>it</code>来使用此参数。<code>it</code>可表示<strong>单个参数的隐式名称</strong></p>
+<p>例子：</p>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">(num1 : <span class="type">Int</span>, bool : (<span class="type">Int</span>) -&gt; <span class="type">Boolean</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">if</span> (bool(num1))&#123; num1 &#125; <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">println(test(<span class="number">10</span>,&#123;it &gt; <span class="number">5</span>&#125;)) <span class="comment">// &#123;&#125; 代表这是一个Lambda表达式，无&#123;&#125;会使得编译器不认识it</span></span><br><span class="line">println(test(<span class="number">4</span>,&#123;it &gt; <span class="number">5</span>&#125;))</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id><a href="#" class="headerlink" title="_"></a>_</h3><p>  在使用<code>Lambda</code>表达式的时候，可以用下划线表示未使用的参数，表示不处理这个参数。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> map = mapOf&lt;String,String&gt;(<span class="string">"key1"</span> to <span class="string">"value1"</span>,<span class="string">"key2"</span> to  <span class="string">"value2"</span>,<span class="string">"key3"</span> to  <span class="string">"value3"</span>)</span><br><span class="line"></span><br><span class="line">map.forEach&#123;</span><br><span class="line">    key,value -&gt; println(<span class="string">"<span class="variable">$key</span> '-' <span class="variable">$value</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line">map.forEach&#123;</span><br><span class="line">        _,value -&gt; println(<span class="string">" '-' <span class="variable">$value</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> test1 = <span class="function"><span class="title">fun</span> <span class="params">(x:<span class="type">Int</span>,y:<span class="type">Int</span>)</span></span> = x+y; <span class="comment">//单表达式函数可以 = 替换 &#123;&#125;</span></span><br><span class="line"><span class="keyword">val</span> test2 = <span class="function"><span class="title">fun</span> <span class="params">(x:<span class="type">Int</span>,y:<span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>= x+y;</span><br><span class="line"><span class="keyword">val</span> test3 = <span class="function"><span class="title">fun</span> <span class="params">(x:<span class="type">Int</span>,y:<span class="type">Int</span>)</span></span> : <span class="built_in">Int</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x+y</span><br><span class="line">&#125;</span><br><span class="line">println(test1(<span class="number">1</span>,<span class="number">3</span>))</span><br><span class="line">println(test2(<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line">println(test3(<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">//这是错的，fun的需要返回值为Unit，但你给了个Int</span></span><br><span class="line"><span class="comment">    val test4= fun(x:Int,y:Int) &#123;</span></span><br><span class="line"><span class="comment">        return x+y</span></span><br><span class="line"><span class="comment">    &#125; </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="带接收者的函数字面值"><a href="#带接收者的函数字面值" class="headerlink" title="带接收者的函数字面值"></a>带接收者的函数字面值</h3><ol>
+<li><p>匿名函数作为接收者类型</p>
+<p>匿名函数语法允许直接指定函数字面值的接收者类型，如果你需要使用带接收者的函数类型声明一个变量。</p>
+</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> iop = <span class="function"><span class="keyword">fun</span>  <span class="built_in">Int</span>.<span class="params">(other:<span class="type">Int</span>)</span></span>:<span class="built_in">Int</span> = <span class="keyword">this</span> + other</span><br><span class="line">println(<span class="number">20</span>.iop(<span class="number">2</span>)) <span class="comment">//上面的this指的是左边的20 或者是 上面fun后的第一个Int</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<ol start="2">
+<li><p>Lambda表达式作为接收者类型</p>
+<p>要用Lambda表达式作为接收者类型的前提是**接收着类型可以从上下文中推断出来</p>
+</li>
+</ol>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTML</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">body</span><span class="params">()</span></span>&#123;</span><br><span class="line">		println(<span class="string">"This is HTML body"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span>  <span class="title">html</span><span class="params">(<span class="keyword">init</span>: <span class="type">HTML</span>.() -&gt; <span class="type">Unit</span>)</span></span>: HTML&#123;</span><br><span class="line">	<span class="keyword">val</span> html = HTML()</span><br><span class="line">	html.<span class="keyword">init</span>()</span><br><span class="line">	<span class="keyword">return</span> html</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">html &#123;</span><br><span class="line">	body()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>闭包，可以函数中包含函数。</p>
+<ul>
+<li>携带状态</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">让函数返回一个函数，并携带状态值</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">test5</span><span class="params">(a:<span class="type">Int</span>)</span></span>:()-&gt;<span class="built_in">Int</span>&#123;</span><br><span class="line">    println(<span class="string">""</span>)</span><br><span class="line">    <span class="keyword">var</span> b = <span class="number">3</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="title">fun</span><span class="params">()</span></span>:<span class="built_in">Int</span>&#123;</span><br><span class="line">        println(<span class="string">"b=&gt; <span class="variable">$b</span>"</span>)</span><br><span class="line">        b++</span><br><span class="line">        <span class="keyword">return</span> b + a</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> t = test5(<span class="number">3</span>)</span><br><span class="line">println(t()) <span class="comment">// 每次执行t函数的时候，b变量的值都是保留了上次执行结束的值，</span></span><br><span class="line">			 <span class="comment">// 因此，叫做携带状态值</span></span><br><span class="line">println(t())</span><br><span class="line">println(t())</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>引用外部变量，并改变外部变量的值</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">val</span> arr = arrayOf(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>)</span><br><span class="line">arr.filter &#123; it&lt;<span class="number">7</span> &#125;.forEach&#123;sum += it&#125;</span><br><span class="line"><span class="comment">//arr.filter &#123; it&lt;7 &#125;.forEach (&#123;sum += it&#125;)</span></span><br><span class="line"></span><br><span class="line">println(sum)</span><br></pre></td></tr></table></figure>
+
+<h2 id="可空类型、空安全、非空断言"><a href="#可空类型、空安全、非空断言" class="headerlink" title="可空类型、空安全、非空断言"></a>可空类型、空安全、非空断言</h2><ol>
+<li><p>判空的方法，if-else / ?. 判断</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str : String? = <span class="string">"12346"</span></span><br><span class="line">str = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">println(str?.length) <span class="comment">//输出null</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当一个函数/方法有返回值时，如果方法中的代码使用<code>?.</code>去返回一个值，那么方法的返回值的类型后面也要加上<code>?</code>符号</p>
+</li>
+<li><p>let操作符</p>
+<p>let操作符作用：当使用?.符号时验证时忽略掉null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">val arrTest : Array&lt;Int?&gt; = arrayOf(1,2,null,3,null,5,6,null)</span><br><span class="line"></span><br><span class="line">// 传统写法</span><br><span class="line">for (index in arrTest) &#123;</span><br><span class="line">    if (index == null)&#123;</span><br><span class="line">        continue</span><br><span class="line">    &#125;</span><br><span class="line">    println(&quot;index =&gt; $index&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// let写法</span><br><span class="line">for (index in arrTest) &#123;</span><br><span class="line">    index?.let &#123; println(&quot;index =&gt; $it&quot;) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">    index =&gt; 1</span><br><span class="line">    index =&gt; 2</span><br><span class="line">    index =&gt; 3</span><br><span class="line">    index =&gt; 5</span><br><span class="line">    index =&gt; 6</span><br><span class="line">*/</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>Evils操作符</p>
+<p>安全性操作符有三种：<code>?:</code> /<code>!!</code> / <code>as?</code></p>
+<p><code>?:</code></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> testStr : String? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> length = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 例： 当testStr不为空时，输出其长度，反之输出-1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 传统写法</span></span><br><span class="line">length = <span class="keyword">if</span> (testStr != <span class="literal">null</span>) testStr.length <span class="keyword">else</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ?: 写法</span></span><br><span class="line">length = testStr?.length ?: -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">println(length)</span><br></pre></td></tr></table></figure>
+
+<p><code>!!</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val testStr : String? = null</span><br><span class="line">println(testStr!!.length)</span><br><span class="line">//如果变量为空，使用!!修饰，运行时会抛出空指针异常</span><br></pre></td></tr></table></figure>
+
+<p><code>as</code></p>
+<p>使用<code>as</code>进行强制转换，在不能转换时会抛出异常，而使用<code>as?</code>则会返回<code>null</code>，但不会抛出异常。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://maplestory.work/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/" data-id="cjzqjqyy8000irota7c3k53om" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/08/22/2019-08-22- DNS解析学习(基于阿里云解析自己域名实例)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          DNS解析学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Kotlin 学习记录（逻辑控制）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DNS/">DNS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kotlin学习/">Kotlin学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/downloader/">downloader</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/halve/">halve</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jekyll/">jekyll</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mcu/">mcu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/parsing-file/">parsing file</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/poems/">poems</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sentence/">sentence</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/串口通讯/">串口通讯</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Algorithm/" style="font-size: 10px;">Algorithm</a> <a href="/tags/C/" style="font-size: 17.5px;">C#</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Kotlin学习/" style="font-size: 20px;">Kotlin学习</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/downloader/" style="font-size: 10px;">downloader</a> <a href="/tags/halve/" style="font-size: 10px;">halve</a> <a href="/tags/jekyll/" style="font-size: 10px;">jekyll</a> <a href="/tags/mcu/" style="font-size: 10px;">mcu</a> <a href="/tags/parsing-file/" style="font-size: 10px;">parsing file</a> <a href="/tags/poems/" style="font-size: 12.5px;">poems</a> <a href="/tags/sentence/" style="font-size: 12.5px;">sentence</a> <a href="/tags/串口通讯/" style="font-size: 12.5px;">串口通讯</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/08/22/2019-08-22- DNS解析学习(基于阿里云解析自己域名实例)/">DNS解析学习</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(Lambda & 空类型、空安全)/">Kotlin 学习记录（Lambda &amp; 空类型）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(逻辑控制) - 副本/">Kotlin 学习记录（逻辑控制）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(类) /">Kotlin 学习记录（类相关）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/15/2019-07-15- Kotlin 学习记录(常变量)/">Kotlin 学习记录（常变量、数据类型）</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
